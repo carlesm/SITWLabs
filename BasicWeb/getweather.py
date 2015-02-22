@@ -81,6 +81,9 @@ class WeatherClient(object):
 
 
 def print_almanac(almanac):
+    """
+    Prints an almanac received as a dict
+    """
     print "High Temperatures:"
     print "Average on this date", almanac["high"]["normal"]
     print "Record on this date %s (%s) " % \
