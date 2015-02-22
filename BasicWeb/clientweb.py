@@ -22,6 +22,9 @@ class Client(object):
         super(Client, self).__init__()
 
     def run(self):
+        # get web page
+        # parse for data
+        # print formatted data
         pass
 
 
