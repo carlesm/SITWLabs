@@ -14,6 +14,10 @@ to follow the labs.
         Must have developer toolbar (firefox or chrome)
 
     Order:
-        ae10521 - Empty client
+        clientweb.py
+            Empty client -> web client -> parse
+
+        weather.py
+            Empty client -> wunderground -> print values
 
 
