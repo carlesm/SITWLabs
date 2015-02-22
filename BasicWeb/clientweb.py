@@ -57,11 +57,12 @@ class Client(object):
             print ",".join(datum)
 
     def run(self):
-        # get web page
+        """
+        Retrieves list of announces from www.udl.cat and print
+        it
+        """
         html = self.get_web_page("http://www.udl.cat/")
-        # parse for data
         novetats = self.parse_web_page(html)
-        # print formatted data
         self.print_data(novetats)
 
 
