@@ -10,6 +10,7 @@ Created on 11/22/2014
 
 import sys
 import urllib2
+import bs4
 
 api_key = None  # If assigned won't read argv[1]
 
@@ -47,7 +48,14 @@ class WeatherClient(object):
         f = urllib2.urlopen(url)
         response = f.read()
         f.close()
-        return response
+
+        soup = bs4.BeautifulSoup(response)
+        # We use find (not find_all) as there is only one, if
+        # we used find_all the response would be iterable
+        temp_high = soup.find("temp_high")
+        print temp_high
+        return None
+
 
 
 if __name__ == "__main__":
