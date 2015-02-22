@@ -9,6 +9,7 @@ Created on 11/22/2014
 '''
 
 import sys
+import urllib2
 
 api_key = None  # If assigned won't read argv[1]
 
@@ -36,13 +37,17 @@ class WeatherClient(object):
         super(WeatherClient, self).__init__()
         self.api_key = api_key
 
-    def almanac(self, location, resp_format = "xml"):
+    def almanac(self, location):
         """
         Accesses wunderground almanac information for the given location
         """
+        resp_format = "xml"
         url = WeatherClient.url_base + api_key + \
             WeatherClient.url_services["almanac"]+location+"."+resp_format
-        print url
+        f = urllib2.urlopen(url)
+        response = f.read()
+        f.close()
+        return response
 
 
 if __name__ == "__main__":
@@ -53,4 +58,4 @@ if __name__ == "__main__":
             print "Must provide api key in code or cmdline arg"
 
     weatherclient = WeatherClient(api_key)
-    weatherclient.almanac("Lleida")
+    print weatherclient.almanac("Lleida")
