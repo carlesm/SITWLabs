@@ -53,7 +53,10 @@ class WeatherClient(object):
         # We use find (not find_all) as there is only one, if
         # we used find_all the response would be iterable
         temp_high = soup.find("temp_high")
-        print temp_high
+        th_normal = temp_high.find("normal")
+        thnc = th_normal.find("c").text
+
+        print "Average on this date", thnc
         return None
 
 
