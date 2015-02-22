@@ -14,6 +14,7 @@ to follow the labs.
         Must have developer toolbar (firefox or chrome)
 
     Order:
+
         clientweb.py
             web client
             urllib2, beautifulsoup4
@@ -24,3 +25,8 @@ to follow the labs.
             urllib2
             must get developer key (first argument)
             http://www.wunderground.com/weather/api/
+            First draft (still no XML/JSON) using beatifulsoup4
+
+
+
+
