@@ -38,7 +38,7 @@ class Client(object):
         html = self.get_web_page("http://www.udl.cat/")
         # parse for data
         # print formatted data
-        print html
+        self.parse_web_page(html)
 
 
 if __name__ == "__main__":
