@@ -49,6 +49,7 @@ class WeatherClient(object):
         response = f.read()
         f.close()
 
+        return_response = {}
         soup = bs4.BeautifulSoup(response)
         # We use find (not find_all) as there is only one, if
         # we used find_all the response would be iterable
@@ -58,9 +59,13 @@ class WeatherClient(object):
         th_record = temp_high.find("record")
         thrc = th_record.find("c").text
 
-        print "Average on this date", thnc
-        print "Record on this date", thrc
-        return None
+        return_response["high"] = {}
+        return_response["high"]["normal"] = thnc
+        return_response["high"]["record"] = thrc
+
+        print "Average on this date", return_response["high"]["normal"]
+        print "Record on this date", return_response["high"]["record"]
+        return return_response
 
 
 
