@@ -49,12 +49,20 @@ class Client(object):
             novetats_llista.append(novetat_tupla)
         return novetats_llista
 
+    def print_data(self, data):
+        """
+        Prints data retrieved
+        """
+        for datum in data:
+            print ",".join(datum)
+
     def run(self):
         # get web page
         html = self.get_web_page("http://www.udl.cat/")
         # parse for data
-        self.parse_web_page(html)
+        novetats = self.parse_web_page(html)
         # print formatted data
+        self.print_data(novetats)
 
 
 if __name__ == "__main__":
