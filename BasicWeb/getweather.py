@@ -36,11 +36,13 @@ class WeatherClient(object):
         super(WeatherClient, self).__init__()
         self.api_key = api_key
 
-    def almanac(self, location):
+    def almanac(self, location, resp_format = "xml"):
         """
         Accesses wunderground almanac information for the given location
         """
-        pass
+        url = WeatherClient.url_base + api_key + \
+            WeatherClient.url_services["almanac"]+location+"."+resp_format
+        print url
 
 
 if __name__ == "__main__":
@@ -51,3 +53,4 @@ if __name__ == "__main__":
             print "Must provide api key in code or cmdline arg"
 
     weatherclient = WeatherClient(api_key)
+    weatherclient.almanac("Lleida")
