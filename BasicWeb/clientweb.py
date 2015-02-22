@@ -36,22 +36,25 @@ class Client(object):
         Parses an html page searching for the agenda
         """
         soup = bs4.BeautifulSoup(html)
-        novetats = soup.find_all("div","novetat")
+        novetats = soup.find_all("div", "novetat")
+        novetats_llista = []
         for novetat in novetats:
-            datahtml = novetat.find("span","data")
+            datahtml = novetat.find("span", "data")
             data = datahtml.text
             item = novetat.find("a")
             text = item.text
             url = item["href"]
-            print data,",",text,",",url
-
+            # print data, ",", text, ",", url
+            novetat_tupla = (data, text, url)
+            novetats_llista.append(novetat_tupla)
+        return novetats_llista
 
     def run(self):
         # get web page
         html = self.get_web_page("http://www.udl.cat/")
         # parse for data
-        # print formatted data
         self.parse_web_page(html)
+        # print formatted data
 
 
 if __name__ == "__main__":
