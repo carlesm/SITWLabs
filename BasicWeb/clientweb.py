@@ -36,7 +36,8 @@ class Client(object):
             data = datahtml.text
             item = novetat.find("a")
             text = item.text
-            print data,",",text
+            url = item["href"]
+            print data,",",text,",",url
 
 
     def run(self):
