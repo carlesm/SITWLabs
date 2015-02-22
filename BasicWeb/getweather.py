@@ -77,18 +77,20 @@ class WeatherClient(object):
         return_response["low"]["record"] = tlrc
         return_response["low"]["year"] = tlry
 
-        print "High Temperatures:"
-        print "Average on this date", return_response["high"]["normal"]
-        print "Record on this date %s (%s) " % \
-            (return_response["high"]["record"],
-                return_response["high"]["year"])
-        print "Low Temperatures:"
-        print "Average on this date", return_response["low"]["normal"]
-        print "Record on this date %s (%s) " % \
-            (return_response["low"]["record"],
-                return_response["low"]["year"])
-
         return return_response
+
+
+def print_almanac(almanac):
+    print "High Temperatures:"
+    print "Average on this date", almanac["high"]["normal"]
+    print "Record on this date %s (%s) " % \
+        (almanac["high"]["record"],
+            almanac["high"]["year"])
+    print "Low Temperatures:"
+    print "Average on this date", almanac["low"]["normal"]
+    print "Record on this date %s (%s) " % \
+        (almanac["low"]["record"],
+            almanac["low"]["year"])
 
 
 if __name__ == "__main__":
@@ -99,4 +101,4 @@ if __name__ == "__main__":
             print "Must provide api key in code or cmdline arg"
 
     weatherclient = WeatherClient(api_key)
-    print weatherclient.almanac("Lleida")
+    print_almanac(weatherclient.almanac("Lleida"))
