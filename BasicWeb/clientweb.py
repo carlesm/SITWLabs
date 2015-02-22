@@ -21,11 +21,18 @@ class Client(object):
     def __init__(self):
         super(Client, self).__init__()
 
+    def get_web_page(self, url):
+        f = urllib2.urlopen(url)
+        html = f.read()
+        f.close()
+        return html
+
     def run(self):
         # get web page
         # parse for data
         # print formatted data
-        pass
+        html = self.get_web_page("http://www.udl.cat/")
+        print html
 
 
 if __name__ == "__main__":
