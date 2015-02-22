@@ -32,7 +32,9 @@ class Client(object):
         soup = bs4.BeautifulSoup(html)
         novetats = soup.find_all("div","novetat")
         for novetat in novetats:
-            print novetat
+            data = novetat.find("span","data")
+            item = novetat.find("a")
+            print data,",",item
 
 
     def run(self):
