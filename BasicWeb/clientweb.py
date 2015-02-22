@@ -23,12 +23,18 @@ class Client(object):
         super(Client, self).__init__()
 
     def get_web_page(self, url):
+        """
+        Retrieves an HTML URL returns, HTML
+        """
         f = urllib2.urlopen(url)
         html = f.read()
         f.close()
         return html
 
     def parse_web_page(self, html):
+        """
+        Parses an html page searching for the agenda
+        """
         soup = bs4.BeautifulSoup(html)
         novetats = soup.find_all("div","novetat")
         for novetat in novetats:
