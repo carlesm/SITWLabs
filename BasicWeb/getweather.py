@@ -44,7 +44,8 @@ class WeatherClient(object):
         """
         resp_format = "xml"
         url = WeatherClient.url_base + api_key + \
-            WeatherClient.url_services["almanac"]+location+"."+resp_format
+            WeatherClient.url_services[
+                "almanac"] + location + "." + resp_format
         f = urllib2.urlopen(url)
         response = f.read()
         f.close()
@@ -58,15 +59,36 @@ class WeatherClient(object):
         thnc = th_normal.find("c").text
         th_record = temp_high.find("record")
         thrc = th_record.find("c").text
+        thry = temp_high.find("recordyear").text
 
         return_response["high"] = {}
         return_response["high"]["normal"] = thnc
         return_response["high"]["record"] = thrc
+        return_response["high"]["year"] = thry
 
+        temp_low = soup.find("temp_low")
+        tl_normal = temp_low.find("normal")
+        tlnc = tl_normal.find("c").text
+        tl_record = temp_low.find("record")
+        tlrc = tl_record.find("c").text
+        tlry = temp_low.find("recordyear").text
+        return_response["low"] = {}
+        return_response["low"]["normal"] = tlnc
+        return_response["low"]["record"] = tlrc
+        return_response["low"]["year"] = tlry
+
+        print "High Temperatures:"
         print "Average on this date", return_response["high"]["normal"]
-        print "Record on this date", return_response["high"]["record"]
-        return return_response
+        print "Record on this date %s (%s) " % \
+            (return_response["high"]["record"],
+                return_response["high"]["year"])
+        print "Low Temperatures:"
+        print "Average on this date", return_response["low"]["normal"]
+        print "Record on this date %s (%s) " % \
+            (return_response["low"]["record"],
+                return_response["low"]["year"])
 
+        return return_response
 
 
 if __name__ == "__main__":
