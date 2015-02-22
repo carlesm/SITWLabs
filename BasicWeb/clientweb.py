@@ -31,7 +31,9 @@ class Client(object):
     def parse_web_page(self, html):
         soup = bs4.BeautifulSoup(html)
         novetats = soup.find_all("div","novetat")
-        print novetats
+        for novetat in novetats:
+            print novetat
+
 
     def run(self):
         # get web page
