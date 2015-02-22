@@ -55,8 +55,11 @@ class WeatherClient(object):
         temp_high = soup.find("temp_high")
         th_normal = temp_high.find("normal")
         thnc = th_normal.find("c").text
+        th_record = temp_high.find("record")
+        thrc = th_record.find("c").text
 
         print "Average on this date", thnc
+        print "Record on this date", thrc
         return None
 
 
