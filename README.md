@@ -15,9 +15,12 @@ to follow the labs.
 
     Order:
         clientweb.py
-            Empty client -> web client -> parse
+            web client
+            urllib2, beautifulsoup4
+            Empty client -> web client -> parse -> print
 
-        weather.py
-            Empty client -> wunderground -> print values
-
-
+        getweather.py
+            wundergroud client
+            urllib2
+            must get developer key (first argument)
+            http://www.wunderground.com/weather/api/
