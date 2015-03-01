@@ -38,13 +38,6 @@ class WeatherClient(object):
         super(WeatherClient, self).__init__()
         self.api_key = apikey
 
-    def getNodeText(self, node):
-        nodelist = node.childNodes
-        result = []
-        for node in nodelist:
-            if node.nodeType == node.TEXT_NODE:
-                result.append(node.data)
-        return ''.join(result)
 
     def almanac(self, location):
         """

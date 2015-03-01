@@ -40,6 +40,9 @@ class WeatherClient(object):
         self.api_key = apikey
 
     def getNodeText(self, node):
+        """
+        Returns the text "hanging" from a XML node
+        """
         nodelist = node.childNodes
         result = []
         for node in nodelist:
