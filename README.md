@@ -27,6 +27,25 @@ to follow the labs.
             http://www.wunderground.com/weather/api/
             First draft (still no XML/JSON) using beatifulsoup4
 
+        getweather-requests.py
+            pip install requests
+            Requests lib version of getweather.py
 
+        getweather-xml-minidom.py
+            XML with minidom
 
+        getweather-xml-untangle.py
+            pip install untangle
+            XML using untangle
 
+        getweather-xml-xmltodict.py
+            pip install xmltodict (beware xmldict)
+            XML with XMLTODICT (more JSON-like)
+
+        getweather-json.py
+            JSON version
+            Too long version (dict -> dict)
+
+        getweather-json-short.py
+            JSON shorter version
+            returning partial dict
