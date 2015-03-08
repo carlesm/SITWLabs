@@ -5,8 +5,16 @@
 <body>
   <h1>{{ pagetitle }}</h1>
 
-  <p>{{ contentbody }}</p>
+{% if user.username %}
+<p>Welcome {{ user.username }}!
+To bribes and envelopes management !</p>
+{% else %}
+<p>Welcome anonymous:
+Must  <a href="/login/">sign in</a>
+to manage bribes.</p>
+{% endif %}
 
 </body>
 </html>
+
 
