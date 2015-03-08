@@ -1,0 +1,20 @@
+<html>
+  <head>
+  <title>{{ username }} Sobres</title>
+  </head>
+<body>
+  <h1>Sobres rebuts per {{ username }}</h1>
+  {% if sobres %}
+  <ul>
+  {% for sobre in sobres %}
+  <li>
+  {{sobre.donor.name}} - {{ sobre.concept}} - {{ sobre.amount }}€
+  </li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p>No ha rebut sobres.</p>
+  {% endif %}
+</body>
+</html>
+
