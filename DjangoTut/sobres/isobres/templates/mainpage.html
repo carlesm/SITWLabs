@@ -1,20 +1,12 @@
-<html>
-  <head>
-  <title>{{ titlehead}}</title>
-  </head>
-<body>
-  <h1>{{ pagetitle }}</h1>
-
+{% extends "basepage.html" %}
+{% block content %}
 {% if user.username %}
 <p>Welcome {{ user.username }}!
-To bribes and envelopes management !</p>
+To bribes and envelopes management !
+You know what to do</p>
 {% else %}
 <p>Welcome anonymous:
 Must  <a href="/login/">sign in</a>
 to manage bribes.</p>
 {% endif %}
-
-</body>
-</html>
-
-
+{% endblock %}
