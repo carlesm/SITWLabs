@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 
 from django.http import HttpResponse, Http404
 from django.template import Context
@@ -10,15 +10,15 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 def mainpage(request):
-    template = get_template('mainpage.html')
-    variables = Context({
-        'titlehead': 'Sobres aPP',
-        'pagetitle': 'Welcome to the Sobres aPPlication',
-        'contentbody': 'Managing non legal funding since 2013',
-        'user': request.user
+   return render_to_response(
+        'mainpage.html',
+        {
+                'titlehead': 'Sobres aPP',
+                'pagetitle': 'Welcome to the Sobres aPPlication',
+                'contentbody': 'Managing non legal funding since 2013',
+                'user': request.user
         })
-    output = template.render(variables)
-    return HttpResponse(output)
+
 
 
 
