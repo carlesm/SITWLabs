@@ -16,5 +16,8 @@ urlpatterns = patterns('',
     url(r'^$', mainpage, name='home'),
     url(r'^login/$', 'django.contrib.auth.views.login'),
 
+    url(r'^api/sobres.json/$', sobresjson),
+
+
     url(r'^admin/', include(admin.site.urls)),
 )

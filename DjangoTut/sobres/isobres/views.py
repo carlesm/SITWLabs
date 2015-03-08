@@ -6,7 +6,7 @@ from django.template.loader import get_template
 
 
 from django.contrib.auth.models import User
-
+from django.utils import simplejson
 
 # Create your views here.
 def mainpage(request):
@@ -36,4 +36,23 @@ def userpage(request, username):
         })
     output = template.render(variables)
     return HttpResponse(output)
+
+
+def sobresjson(request):
+    user = request.user
+    if not user:
+        raise Http404('User not found.')
+    sobres = user.sobre_set.all()
+    sobresjson = []
+    for s in sobres:
+        sobre = dict()
+        sobre["date"]=s.date.ctime()
+        sobre["amount"]=s.amount
+        sobre["concept"]=s.concept
+        sobre["donor"]=s.donor.name
+        sobre["user"]=s.user.username
+        sobresjson.append(sobre)
+
+
+    return HttpResponse(simplejson.dumps(sobresjson),mimetype='application/json')
 
