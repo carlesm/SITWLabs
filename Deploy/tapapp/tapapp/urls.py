@@ -16,6 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+
+import tapesbars.views as tv
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', tv.BarListView.as_view(), name='Bars'),
+    url(r'^bars/(?P<pk>[0-9]+)$', tv.BarDetailView.as_view(), name='Bars_Detail'),
 ]

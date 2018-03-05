@@ -1,0 +1,16 @@
+
+{% block content %}
+  <h1>Bar: {{ bar.name }}</h1>
+
+  <p><strong>Addr:</strong>{{ bar.addr}}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+      <h4>Tapes</h4>
+      <ul>
+      {% for tapa in bar.tapes_set.all %}
+      <li><p><strong>Tapa:</strong> {{tapa.name}}</p>
+      </li>
+      {% endfor %}
+      </ul>
+  </div>
+{% endblock %}

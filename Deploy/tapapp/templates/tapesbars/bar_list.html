@@ -1,0 +1,18 @@
+
+{% block content %}
+    <h1>Bars</h1>
+
+    {% if bar_list %}
+    <ul>
+
+      {% for bar in bar_list %}
+      <li>
+        <a href="{{ bar.get_absolute_url }}">{{ bar.name }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>No bars available.</p>
+    {% endif %}
+{% endblock %}
